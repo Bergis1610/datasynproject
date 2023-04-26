@@ -1,0 +1,14 @@
+
+
+
+path: ../datasets/Czech  # dataset root dir
+train: train/images/train  # train images (relative to 'path') 
+val: train/images/val  # val images (relative to 'path') 
+test: test/
+
+names: 
+  0: 'Longitudinal Crack'
+  1: 'Lateral Crack'
+  2: 'Alligator Crack'
+  3: 'Pothole'
+
