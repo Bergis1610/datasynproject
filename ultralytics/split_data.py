@@ -13,13 +13,13 @@ def move_files_to_folder(files, dest):
             print(file)
             assert False
 
-datasets = [ "China_MotorBike", "Czech", "India", "Japan", "Norway", "United_States"]
+datasets = ["Norway_Croppppped"]
 
 for dataset in datasets: 
     print("Working with ", dataset)
 
-    images = [os.path.join('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/train/images', x) for x in os.listdir('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/train/images')]
-    labels = [os.path.join('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/train/labels', x) for x in os.listdir('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/train/labels')]
+    images = [os.path.join('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/images', x) for x in os.listdir('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/images')]
+    labels = [os.path.join('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/labels', x) for x in os.listdir('/work/jonasbol/datasynproject/ultralytics/datasets/'+dataset+'/labels')]
 
     images.sort()
     labels.sort()
@@ -31,16 +31,16 @@ for dataset in datasets:
     train_images, val_images, train_labels, val_labels = train_test_split(images, labels, test_size=0.2, random_state=1)
 
     ## Making directories 
-    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/images/train/")
-    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/images/val/")
+    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/images/train/")
+    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/images/val/")
 
-    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels/train/")
-    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels/val/")
+    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/labels/train/")
+    os.mkdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/labels/val/")
 
     ## moving files 
-    move_files_to_folder(train_images, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/images/train/")
-    move_files_to_folder(val_images, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/images/val/")
-    move_files_to_folder(train_labels, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels/train/")
-    move_files_to_folder(val_labels, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels/val/")
+    move_files_to_folder(train_images, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/images/train/")
+    move_files_to_folder(val_images, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/images/val/")
+    move_files_to_folder(train_labels, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/labels/train/")
+    move_files_to_folder(val_labels, "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/labels/val/")
     
     print("Done with ", dataset)

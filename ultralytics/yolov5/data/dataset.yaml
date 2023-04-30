@@ -1,9 +1,9 @@
 
 
 
-path: ../datasets/China_MotorBike  # dataset root dir
-train: train/images  # train images (relative to 'path') 118287 images
-val: train/images  # val images (relative to 'path') 5000 images
+path: ../datasets/Japan  # dataset root dir
+train: train/images  # train images (relative to 'path') 
+val: train/images  # val images (relative to 'path') 
 test: 
 
 names: 
