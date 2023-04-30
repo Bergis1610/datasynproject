@@ -4,7 +4,7 @@ import os
 
 ## Makes txt files for all datasets in YOLO format
 
-datasets =  [ "China_MotorBike", "Czech", "India", "Japan", "Norway", "United_States"]
+datasets =  ["China_MotorBike", "Czech", "India", "Japan", "Norway", "United_States"]
 
 def getWidthHeight(data): 
 
@@ -29,15 +29,15 @@ def is_number(s):
     
 
 for dataset in datasets: 
-    for filename in os.listdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls"):
+    for filename in os.listdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls"): ## edit path 
         
-        if os.path.isdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls/"+filename):
+        if os.path.isdir("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls/"+filename): # edit path 
             continue
 
-        with open("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls/"+filename, 'r') as f:
+        with open("/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/annotations/xmls/"+filename, 'r') as f: # edit path 
             data = f.read()
 
-        save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels"
+        save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/"+dataset+"/train/labels" # edit path 
         complete_path = save_path+"/"+filename.split("xml")[0] + "txt"
         
         ## opens txt file 

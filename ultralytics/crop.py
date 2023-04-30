@@ -32,14 +32,14 @@ def is_number(s):
     except ValueError:
         return False
 
-for filename in os.listdir("/work/jonasbol/datasynproject/ultralytics/datasets/Norway_cropped/Norway/train/annotations/xmls"):
+for filename in os.listdir("/work/jonasbol/datasynproject/ultralytics/datasets/Norway/train/annotations/xmls"): # edit path to .../Norway/train/annotations/xmls
     test += 1
 
-    xml_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway_cropped/Norway/train/annotations/xmls/"+filename
-    jpg_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway_cropped/Norway/train/images/"+filename[:-3]+"jpg"
+    xml_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway/train/annotations/xmls/"+filename # edit path to .../Norway/train/annotations/xmls
+    jpg_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway/train/images/"+filename[:-3]+"jpg" # edit path to .../Norway/train/images
 
-    jpg_save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway_Croppppped/images"
-    txt_save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/Norway_Croppppped/labels"
+    jpg_save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/crop_test/images"  ## edit to cropped dataset folder / images 
+    txt_save_path = "/work/jonasbol/datasynproject/ultralytics/datasets/crop_test/labels" ## edit to cropped dataset folder / labels  
 
 
     complete_txt_path = txt_save_path + "/" + filename.split("xml")[0] + "txt"
@@ -50,7 +50,7 @@ for filename in os.listdir("/work/jonasbol/datasynproject/ultralytics/datasets/N
 
     im = Image.open(jpg_path)
 
-    with open("/work/jonasbol/datasynproject/ultralytics/datasets/Norway_cropped/Norway/train/annotations/xmls/"+filename, 'r') as f:
+    with open("/work/jonasbol/datasynproject/ultralytics/datasets/Norway/train/annotations/xmls/"+filename, 'r') as f: # edit path to .../Norway/train/annotations/xmls
         data = f.read()
 
     bs_data = BeautifulSoup(data, "xml")
